@@ -1,3 +1,25 @@
 <h1>
   {{title}}
 </h1>
+
+<!-- <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map> -->
+
+<div>
+</div>
+
+<agm-map [latitude]="latA" [longitude]="lngA" [zoom]="zoom">
+
+  <agm-marker *ngFor="let marker of mapMarkers"
+    [latitude]="marker.lat"
+    [longitude]="marker.long">
+  </agm-marker>
+
+  <agm-polyline *ngIf="showLine">
+     <agm-polyline-point *ngFor="let pointer of mapPointer"
+      [latitude]="pointer.lat"
+      [longitude]="pointer.long">
+     </agm-polyline-point>
+  </agm-polyline>
+</agm-map>
